@@ -28,12 +28,10 @@ class PlaceToVisit {
     visitProfit = placePriority/timeToVisit;
   }
 
-  void showMeYourData() {
-    print(placeTitle);
-    print(timeToVisit);
-    print(placePriority);
-    print(visitProfit);
+  void displayInfo(){
+    print('$placeTitle $timeToVisitч');
   }
+
   // Переопределение операторов сравнения для их использования в сортировке
   // Экземпляры класса сравниваются между собой по значению поля visitProfit
   bool operator >(PlaceToVisit otherPlace) => visitProfit > otherPlace.visitProfit;

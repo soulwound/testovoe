@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // В файле place_to_visit.dart содержится описание структуры данных PlaceToVisit, которую я использую для решения задачи
+import 'package:testovoe/make_decision.dart';
 import 'package:testovoe/place_to_visit.dart';
 // В файле quick_sort.dart содержится функция сортировки
 import 'package:testovoe/quick_sort.dart';
@@ -24,13 +25,14 @@ void main() async {
     print('Error: $e');
   }
 
-  for(PlaceToVisit x in placesList){
-    print(x.visitProfit);
-  }
-  print('---------------------------');
+  double hours = 48 - 16;
+  // Сортируем
   placesList = quickSort(placesList);
-  for(PlaceToVisit x in placesList){
-    print(x.visitProfit);
+  // Отбираем самые хорошие места для посещения
+  List<PlaceToVisit> result = makeDecision(hours, placesList);
+  // Выводим названия и время, необходимое для посещения
+  for(PlaceToVisit place in result){
+    place.displayInfo();
   }
 
 }
